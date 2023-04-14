@@ -196,13 +196,12 @@ __4. Experiments & Results__
 
 __4.1 Protocol__
 
-- <u>Details about splitting into training and testing datasets</u>: The data was split into 80% training and 20% testing, and reproducibility was added with a seed value of 42. 
+* <u>Details about splitting into training and testing datasets</u>: The data was split into 80% training and 20% testing, and reproducibility was added with a seed value of 42. 
 
-- What kind of preprocessing was done to the dataset.  
-* Data cleaning - The dataset was searched for missing values and duplicates, which were dropped if found.  
-* Feature Scaling / Feature Reduction / Feature Selection - (TBD after consulting with Sir)
-
-From the EDA, we notice that most of the columns (about 3/4th) have an absolute correlation above 0.261 with critical_temp upon observing the correlation matrix. We hence decided to apply feature reduction to the dataset in order to boost the speed of computation by removing less relevant features. We hence got the absolute values of the correlation values with `critical_temp`, and eliminated about 25% of the columns that were correlated by less than ~0.261. 
+* What kind of preprocessing was done to the dataset.  
+    - <u>Data cleaning</u> - The dataset was searched for missing values and duplicates, which were dropped if found.  
+    - <u>Feature Scaling / Feature Reduction / Feature Selection</u> - (TBD after consulting with Sir)
+    From the EDA, we notice that most of the columns (about 3/4th) have an absolute correlation above 0.261 with critical_temp upon observing the correlation matrix. We hence decided to apply feature reduction to the dataset in order to boost the speed of computation by removing less relevant features. We hence got the absolute values of the correlation values with `critical_temp`, and eliminated about 25% of the columns that were correlated by less than ~0.261. 
 
 <br>
 
