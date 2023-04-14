@@ -45,9 +45,9 @@ __2. Dataset and Features__
 
 <br>
 
->> Majority of the columns are of type float64, with the exception of two (`number_of_elements`, `range_Valence`), which are of type int64 and hence take discrete values. The dataset doesn’t contain any missing values, although it was found to contain 66 duplicate rows, which had to be dropped as part of data cleaning. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Majority of the columns are of type float64, with the exception of two (`number_of_elements`, `range_Valence`), which are of type int64 and hence take discrete values. The dataset doesn’t contain any missing values, although it was found to contain 66 duplicate rows, which had to be dropped as part of data cleaning. 
 
->> To understand the relationship between the features of the dataset and the target variable `critical_temp`, we make use of scatterplots and correlation matrices. Samples of some scatterplots are shown below: 
+&nbsp;&nbsp;&nbsp;&nbsp;To understand the relationship between the features of the dataset and the target variable `critical_temp`, we make use of scatterplots and correlation matrices. Samples of some scatterplots are shown below: 
 
 <br>
 
@@ -68,7 +68,7 @@ __2. Dataset and Features__
 
 <br>
 
->> As can be seen, we do not observe distinct linear patterns emerge between the features with `critical_temp`, but in the case of some features, observe an increasing or decreasing trend. The values in the correlation matrix support this fact, as those features show a reasonably high absolute value of correlation with `critical_temp`, indicating some amount of linear dependence. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As can be seen, we do not observe distinct linear patterns emerge between the features with `critical_temp`, but in the case of some features, observe an increasing or decreasing trend. The values in the correlation matrix support this fact, as those features show a reasonably high absolute value of correlation with `critical_temp`, indicating some amount of linear dependence. 
 
 <br>
 
