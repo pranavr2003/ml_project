@@ -115,6 +115,8 @@ __5. Discussion__
 
 - Not required in first draft
 
+<br>
+
 __6. Conclusion__
 
 - Not required in first draft

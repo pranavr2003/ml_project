@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>report.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 style="text-align: center;"> Machine Learning </h2>
+<h3 style="text-align: center;"> Course Project Report </h3>
+<h4 style="text-align: center;"> (Draft - 01, Team No: 01) </h4>
+<style>
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+<hr>
+<h4 id="title-of-the-project-superconductivity-data">Title of the project: Superconductivity Data</h4>
+<!-- <br> -->
+<p><strong>Student 1</strong>: Sarang Galada, sarang.g-25@scds.saiuniversity.edu.in<br>
+<strong>Student 2</strong>: R Sai Pranav Aadhitya, saipranavaadhitya.r-25@scds.saiuniversity.edu.in</p>
+<!-- <br> -->
+<h4 id="ml-category-regression">ML Category: Regression</h4>
+<hr>
+<br>
+<p><strong>1. Introduction</strong></p>
+<ul>
+<li><u>Problem Statement</u>: Superconductivity is the property of certain materials to exhibit zero electrical resistance, ie. ability to conduct direct current electricity without energy loss, when cooled below their critical temperature. Due to its unique advantages, a lot of research has been directed towards superconductivity and its applications. Despite that, the relationship between Critical Temperature (below which the material behaves as a superconductor) and the material’s chemical properties is poorly understood. This has propelled efforts to use Machine Learning techniques to model critical temperature and understand its relationship with the material’s chemical properties.</li>
+</ul>
+<br>
+<p><strong>2. Dataset and Features</strong></p>
+<ul>
+<li>
+<p><u>Details of the dataset</u>: This project makes use of the Superconductivity dataset from University of California, Irvine’s Machine Learning Repository, sourced from Dr. Kam Hamidieh. The dataset consists of 21,263 rows and 82 columns. The rows represent different superconductor compounds (for eg. La<sub>2</sub>CuO<sub>4</sub>), while the columns depict various statistical measures of their chemical properties (for eg. mean Atomic Mass, standard deviation of Thermal Conductivity, range of Heat of Fusion and so on). Of these 82 columns, 81 are the input features for our learning model, with the 82nd column (Critical Temperature) being the target variable we wish to predict.</p>
+</li>
+<li>
+<p><u>Exploratory Data Analysis</u>: As mentioned earlier, the dataset contains 21,263 rows and 82 columns.</p>
+</li>
+</ul>
+<br>
+<p><img src="img/data_head.jpeg" alt="data.head()" title="Peek into the first 5 rows of the dataset"></p>
+<br>
+<p>        Majority of the columns are of type float64, with the exception of two (<code>number_of_elements</code>, <code>range_Valence</code>), which are of type int64 and hence take discrete values. The dataset doesn’t contain any missing values, although it was found to contain 66 duplicate rows, which had to be dropped as part of data cleaning.</p>
+<p>    To understand the relationship between the features of the dataset and the target variable <code>critical_temp</code>, we make use of scatterplots and correlation matrices. Samples of some scatterplots are shown below:</p>
+<br>
+<!-- ![plot1](img/plot1.jpeg "") ![plot2](img/plot2.jpeg "")
+
+![plot3](img/plot3.jpeg "") ![plot4](img/plot4.jpeg "") -->
+<p float="center">
+<figure>
+  <img style="text-align: center;" src="img/plot1.jpeg" height="300" width="330" class="center">
+  <br>
+  <img style="text-align: center;" src="img/plot2.jpeg" height="300" width="330" class="center">
+  <br>
+  <img style="text-align: center;" src="img/plot3.jpeg" height="300" width="330" class="center">
+  <br>
+  <img style="text-align: center;" src="img/plot4.jpeg" height="300" width="330" class="center">
+</figure></p>
+<br>
+<p>        As can be seen, we do not observe distinct linear patterns emerge between the features with <code>critical_temp</code>, but in the case of some features, observe an increasing or decreasing trend. The values in the correlation matrix support this fact, as those features show a reasonably high absolute value of correlation with <code>critical_temp</code>, indicating some amount of linear dependence.</p>
+<br>
+<!-- <p align="center"> -->
+<img style="text-align: center;" src="img/corr_hist.jpeg" height="300" width="330" class="center">
+<!-- ![corr_hist](img/corr_hist.jpeg "Correlation histogram for critical_temp")   -->
+<br>
+<p><strong>3. Methods</strong></p>
+<br>
+<p><strong>3.1 Baseline - Linear Regression</strong></p>
+<ul>
+<li><u>Brief description of the method</u>: We began by implementing the baseline model, which in this case is a multivariate linear regression model. The data was split into 80% training and 20% testing as is usually recommended, while maintaining reproducibility with a randomness seed value of 42. Upon running this, we got an $R^2$ score of 0.7225 (approx.). We then obtained a cross validation score on the training dataset with 5 folds, which was 0.7173577593955325 +/- 0.009265942222307403. The ~0.9% deviation shows that the model is not very sensitive to small changes in the data, and overall adapts quite well to new instances.</li>
+</ul>
+<br>
+<p><strong>4. Experiments &amp; Results</strong></p>
+<br>
+<p><strong>4.1 Protocol</strong></p>
+<ul>
+<li>
+<p><u>Details about splitting into training and testing datasets</u>: The data was split into 80% training and 20% testing, and reproducibility was added with a seed value of 42.</p>
+</li>
+<li>
+<p>What kind of preprocessing was done to the dataset.</p>
+<ul>
+<li><u>Data cleaning</u> - The dataset was searched for missing values and duplicates, which were dropped if found.</li>
+<li><u>Feature Scaling / Feature Reduction / Feature Selection</u> - (TBD after consulting with Sir)
+From the EDA, we notice that most of the columns (about 3/4th) have an absolute correlation above 0.261 with critical_temp upon observing the correlation matrix. We hence decided to apply feature reduction to the dataset in order to boost the speed of computation by removing less relevant features. We hence got the absolute values of the correlation values with <code>critical_temp</code>, and eliminated about 25% of the columns that were correlated by less than ~0.261.</li>
+</ul>
+</li>
+</ul>
+<br>
+<p><strong>4.2 Results</strong></p>
+<ul>
+<li>
+<p><u>Baseline results</u>:</p>
+</li>
+<li>
+<p><u>Include tables and figures (plots) for various experiments</u>:</p>
+</li>
+</ul>
+<br>
+<p><strong>5. Discussion</strong></p>
+<ul>
+<li>Not required in first draft</li>
+</ul>
+<br>
+<p><strong>6. Conclusion</strong></p>
+<ul>
+<li>Not required in first draft</li>
+</ul>
+<br>
+<p><strong>4.2 Results</strong></p>
+<ul>
+<li>
+<p><u>Baseline results</u>:</p>
+</li>
+<li>
+<p><u>Include tables and figures (plots) for various experiments</u>:</p>
+</li>
+</ul>
+<br>
+<p><strong>5. Discussion</strong></p>
+<ul>
+<li>Not required in first draft</li>
+</ul>
+<p><strong>6. Conclusion</strong></p>
+<ul>
+<li>Not required in first draft</li>
+</ul>
+<p><strong>7. References</strong></p>
+<ul>
+<li><a href="https://archive.ics.uci.edu/ml/datasets/Superconductivty+Data#">UCI Machine Learning Archive from which the datase was taken</a></li>
+<li><a href="https://www.nature.com/articles/s41524-018-0085-8">Machine learning modeling of superconducting critical temperature - Nature.com article</a></li>
+</ul>
+
+</body>
+</html>
