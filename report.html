@@ -12,8 +12,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 body {
-	font-family: 'Times New Roman', Times, serif;
-	/* font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif); */
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
 	font-size: var(--vscode-markdown-font-size, 14px);
 	padding: 0 26px;
 	line-height: var(--vscode-markdown-line-height, 22px);
@@ -309,8 +308,7 @@ pre code {
  */
 
  body {
-	font-family: 'Times New Roman', Times, serif;
-	/* font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo"; */
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
 	padding: 0 12px;
 }
 
@@ -371,12 +369,22 @@ code {
 <h3 style="text-align: center;"> Course Project Report </h3>
 <h4 style="text-align: center;"> (Draft - 01, Team No: 01) </h4>
 <style>
+
     .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
+
+  body {
+	font-family: 'Times New Roman', Times, serif;
+	/* font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo"; */
+	font-size: 100%;
+	padding: 0 12px;
+  margin: 3%;
+}
+
 </style>
 <hr>
 <h4 id="title-of-the-project-superconductivity-data">Title of the project: Superconductivity Data</h4>
@@ -388,8 +396,11 @@ code {
 <hr>
 <br>
 <p><strong>1. Introduction</strong></p>
+<blockquote>
+<p>Superconductivity is the property of certain materials to exhibit zero electrical resistance, ie. ability to conduct direct current electricity without energy loss, when cooled below their critical temperature. Due to its unique advantages, a lot of research has been directed towards superconductivity and its applications. Despite that, the relationship between Critical Temperature (below which the material behaves as a superconductor) and the material’s chemical properties is poorly understood. This has propelled efforts to use Machine Learning techniques to model critical temperature and understand its relationship with the material’s chemical properties.</p>
+</blockquote>
 <ul>
-<li><u>Problem Statement</u>: Superconductivity is the property of certain materials to exhibit zero electrical resistance, ie. ability to conduct direct current electricity without energy loss, when cooled below their critical temperature. Due to its unique advantages, a lot of research has been directed towards superconductivity and its applications. Despite that, the relationship between Critical Temperature (below which the material behaves as a superconductor) and the material’s chemical properties is poorly understood. This has propelled efforts to use Machine Learning techniques to model critical temperature and understand its relationship with the material’s chemical properties.</li>
+<li><u>Problem Statement</u>: Predicting the Critical Temperature of the Superconductor compounds based on the values of their various chemical properties.</li>
 </ul>
 <br>
 <p><strong>2. Dataset and Features</strong></p>
@@ -419,7 +430,7 @@ code {
   <img style="text-align: center;" src="img/plot3.jpeg" height="300" width="330" class="center">
   <br>
   <img style="text-align: center;" src="img/plot4.jpeg" height="300" width="330" class="center">
-</figure></p>
+</p>
 <br>
 <p>        As can be seen, we do not observe distinct linear patterns emerge between the features with <code>critical_temp</code>, but in the case of some features, observe an increasing or decreasing trend. The values in the correlation matrix support this fact, as those features show a reasonably high absolute value of correlation with <code>critical_temp</code>, indicating some amount of linear dependence.</p>
 <br>
@@ -445,7 +456,7 @@ code {
 <p>What kind of preprocessing was done to the dataset.</p>
 <ul>
 <li><u>Data cleaning</u> - The dataset was searched for missing values and duplicates, which were dropped if found.</li>
-<li><u>Feature Scaling / Feature Reduction / Feature Selection</u> - (TBD after consulting with Sir)
+<li><u>Feature Scaling / Feature Reduction / Feature Selection</u> -
 From the EDA, we notice that most of the columns (about 3/4th) have an absolute correlation above 0.261 with critical_temp upon observing the correlation matrix. We hence decided to apply feature reduction to the dataset in order to boost the speed of computation by removing less relevant features. We hence got the absolute values of the correlation values with <code>critical_temp</code>, and eliminated about 25% of the columns that were correlated by less than ~0.261.</li>
 </ul>
 </li>
@@ -485,16 +496,17 @@ From the EDA, we notice that most of the columns (about 3/4th) have an absolute 
 <ul>
 <li>Not required in first draft</li>
 </ul>
-<br>
 <p><strong>6. Conclusion</strong></p>
 <ul>
 <li>Not required in first draft</li>
 </ul>
 <p><strong>7. References</strong></p>
-<ul>
-<li><a href="https://archive.ics.uci.edu/ml/datasets/Superconductivty+Data#">UCI Machine Learning Archive from which the datase was taken</a></li>
-<li><a href="https://www.nature.com/articles/s41524-018-0085-8">Machine learning modeling of superconducting critical temperature - Nature.com article</a></li>
-</ul>
+<blockquote>
+<p>[1] <a href="https://archive.ics.uci.edu/ml/datasets/Superconductivty+Data#">UCI Machine Learning Archive from which the database was taken</a><br>
+[2] <a href="https://www.nature.com/articles/s41524-018-0085-8">Machine learning modeling of superconducting critical temperature - Nature.com article</a><br>
+[3] <a href="https://k12.libretexts.org/Bookshelves/Mathematics/Statistics">Scatter Plots and Linear Correlation - K12 LibreTexts</a><br>
+[4] <a href="https://doi.org/10.1016/j.commatsci.2018.07.052">Hamidieh, Kam, A data-driven statistical model for predicting the critical temperature of a superconductor, Computational Materials Science, Volume 154, November 2018</a></p>
+</blockquote>
 
 </body>
 </html>
