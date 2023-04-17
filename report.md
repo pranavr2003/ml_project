@@ -3,12 +3,22 @@
 <h4 style="text-align: center;"> (Draft - 01, Team No: 01) </h4>
 
 <style>
+
     .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
+
+  body {
+	font-family: 'Times New Roman', Times, serif;
+	/* font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo"; */
+	font-size: 100%;
+	padding: 0 12px;
+  margin: 3%;
+}
+
 </style>
 
 ---------------------------------------------------------------
@@ -29,7 +39,9 @@ __Student 2__: R Sai Pranav Aadhitya, saipranavaadhitya.r-25@scds.saiuniversity.
 
 __1. Introduction__  
 
-- <u>Problem Statement</u>: Superconductivity is the property of certain materials to exhibit zero electrical resistance, ie. ability to conduct direct current electricity without energy loss, when cooled below their critical temperature. Due to its unique advantages, a lot of research has been directed towards superconductivity and its applications. Despite that, the relationship between Critical Temperature (below which the material behaves as a superconductor) and the material’s chemical properties is poorly understood. This has propelled efforts to use Machine Learning techniques to model critical temperature and understand its relationship with the material’s chemical properties.
+> Superconductivity is the property of certain materials to exhibit zero electrical resistance, ie. ability to conduct direct current electricity without energy loss, when cooled below their critical temperature. Due to its unique advantages, a lot of research has been directed towards superconductivity and its applications. Despite that, the relationship between Critical Temperature (below which the material behaves as a superconductor) and the material’s chemical properties is poorly understood. This has propelled efforts to use Machine Learning techniques to model critical temperature and understand its relationship with the material’s chemical properties.   
+
+- <u>Problem Statement</u>: Predicting the Critical Temperature of the Superconductor compounds based on the values of their various chemical properties. 
 
 <br>
 
@@ -98,7 +110,7 @@ __4.1 Protocol__
 
 * What kind of preprocessing was done to the dataset.  
     - <u>Data cleaning</u> - The dataset was searched for missing values and duplicates, which were dropped if found.  
-    - <u>Feature Scaling / Feature Reduction / Feature Selection</u> - (TBD after consulting with Sir)
+    - <u>Feature Scaling / Feature Reduction / Feature Selection</u> - 
     From the EDA, we notice that most of the columns (about 3/4th) have an absolute correlation above 0.261 with critical_temp upon observing the correlation matrix. We hence decided to apply feature reduction to the dataset in order to boost the speed of computation by removing less relevant features. We hence got the absolute values of the correlation values with `critical_temp`, and eliminated about 25% of the columns that were correlated by less than ~0.261. 
 
 <br>
@@ -141,5 +153,7 @@ __6. Conclusion__
 
 __7. References__
 
-- [UCI Machine Learning Archive from which the datase was taken](https://archive.ics.uci.edu/ml/datasets/Superconductivty+Data#)
-- [Machine learning modeling of superconducting critical temperature - Nature.com article](https://www.nature.com/articles/s41524-018-0085-8)
+> [1] [UCI Machine Learning Archive from which the database was taken](https://archive.ics.uci.edu/ml/datasets/Superconductivty+Data#)    
+> [2] [Machine learning modeling of superconducting critical temperature - Nature.com article](https://www.nature.com/articles/s41524-018-0085-8)    
+> [3] [Scatter Plots and Linear Correlation - K12 LibreTexts](https://k12.libretexts.org/Bookshelves/Mathematics/Statistics)     
+> [4] [Hamidieh, Kam, A data-driven statistical model for predicting the critical temperature of a superconductor, Computational Materials Science, Volume 154, November 2018](https://doi.org/10.1016/j.commatsci.2018.07.052)
